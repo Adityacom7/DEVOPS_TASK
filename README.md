@@ -1,6 +1,6 @@
 # Logo Server
 
-#testgo
+#testgom
 
 A simple Express.js web server that serves the Swayatt logo image.
 
