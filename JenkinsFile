@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages{
+
+        stage("checkout"){
+            steps{
+                git branch: 'dev', url: 'https://github.com/Adityacom7/DEVOPS_TASK.git'
+        }
+        stage("build"){
+            steps{
+                sh 'echo "Building app..."'
+                sh 'npm install'
+            }
+
+        }
+        stage("Dockerize"){
+
+        }
+        stage("Push"){
+        }
+        stage("deploy"){
+
+        }
+
+    }
+
+
+   
+}
+}
