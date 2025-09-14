@@ -270,6 +270,11 @@ deployed
 
 
 INFRA
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image.png)
 
 ubuntu@bastion:~/DEVOPS_TASK/infra$ terraform plan
 
