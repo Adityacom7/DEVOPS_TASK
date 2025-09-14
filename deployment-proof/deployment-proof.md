@@ -265,3 +265,124 @@ EKS
 deployed
 
 ![alt text](image-3.png)
+
+
+
+
+INFRA
+
+ubuntu@bastion:~/DEVOPS_TASK/infra$ terraform plan
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the    
+following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_ecr_repository.devops_repo will be created
+  + resource "aws_ecr_repository" "devops_repo" {
+      + arn                  = (known after apply)
+      + id                   = (known after apply)
+      + image_tag_mutability = "MUTABLE"
+      + name                 = "devops-task"
+      + region               = "ap-south-1"
+      + registry_id          = (known after apply)
+      + repository_url       = (known after apply)
+      + tags_all             = (known after apply)
+
+      + encryption_configuration {
+          + encryption_type = "AES256"
+          + kms_key         = (known after apply)
+        }
+
+      + image_scanning_configuration {
+          + scan_on_push = true
+        }
+    }
+
+  # aws_eks_cluster.devops_cluster will be created
+  + resource "aws_eks_cluster" "devops_cluster" {
+      + arn                           = (known after apply)
+      + bootstrap_self_managed_addons = true
+      + certificate_authority         = (known after apply)
+      + cluster_id                    = (known after apply)
+      + created_at                    = (known after apply)
+      + deletion_protection           = (known after apply)
+      + endpoint                      = (known after apply)
+      + id                            = (known after apply)
+      + identity                      = (known after apply)
+      + name                          = "Devops_tas-clusterk"
+      + platform_version              = (known after apply)
+      + region                        = "ap-south-1"
+      + role_arn                      = "arn:aws:iam::975050277554:role/AmazonEKSAutoNodeRole"
+      + status                        = (known after apply)
+      + tags_all                      = (known after apply)
+      + version                       = "1.33"
+
+      + access_config (known after apply)
+
+      + kubernetes_network_config (known after apply)
+
+      + upgrade_policy (known after apply)
+
+      + vpc_config {
+          + cluster_security_group_id = (known after apply)
+          + endpoint_private_access   = false
+          + endpoint_public_access    = true
+          + public_access_cidrs       = (known after apply)
+          + subnet_ids                = [
+              + "subnet-00f008188269e4dbf",
+              + "subnet-0368a5018ee5dbab9",
+              + "subnet-041ec962e92eca6ac",
+            ]
+          + vpc_id                    = (known after apply)
+        }
+    }
+
+  # aws_eks_node_group.devops_nodes will be created
+  + resource "aws_eks_node_group" "devops_nodes" {
+      + ami_type               = "AL2023_x86_64_STANDARD"
+      + arn                    = (known after apply)
+      + capacity_type          = (known after apply)
+      + cluster_name           = "Devops_tas-clusterk"
+      + disk_size              = 20
+      + id                     = (known after apply)
+      + instance_types         = [
+          + "t3.medium",
+        ]
+      + node_group_name        = "devops-task-nodes"
+      + node_group_name_prefix = (known after apply)
+      + node_role_arn          = "arn:aws:iam::975050277554:role/adieksnode"
+      + region                 = "ap-south-1"
+      + release_version        = (known after apply)
+      + resources              = (known after apply)
+      + status                 = (known after apply)
+      + subnet_ids             = [
+          + "subnet-00f008188269e4dbf",
+          + "subnet-0368a5018ee5dbab9",
+          + "subnet-041ec962e92eca6ac",
+        ]
+      + tags_all               = (known after apply)
+      + version                = (known after apply)
+
+      + node_repair_config (known after apply)
+
+      + scaling_config {
+          + desired_size = 2
+          + max_size     = 3
+          + min_size     = 1
+        }
+
+      + update_config (known after apply)
+    }
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + cluster_arn      = (known after apply)
+  + cluster_endpoint = (known after apply)
+  + cluster_name     = "Devops_tas-clusterk"
+  + ecr_repo_url     = (known after apply)
+  + nodegroup_name   = "devops-task-nodes"
+
+──────────────────────────────────────────────────────────────────
