@@ -1,0 +1,21 @@
+apiVersion: apps/v1        # Defines the resource type as Deployment
+kind: Deployment           # The type of Kubernetes object
+metadata:
+  name: devops-task-deployment  # Name of the deployment
+  labels:
+    app: devops-task            # Label used for selector
+spec:
+  replicas: 2                  # Number of pods to run
+  selector:
+    matchLabels:
+      app: devops-task         # Pods with this label are managed by this deployment
+  template:
+    metadata:
+      labels:
+        app: devops-task
+    spec:
+      containers:
+      - name: devops-task
+        image: 975050277554.dkr.ecr.ap-south-1.amazonaws.com/devops-task:latest
+        ports:
+        - containerPort: 3000
