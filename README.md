@@ -1,5 +1,5 @@
 # Logo Serverok
-#nkjnxaaszx ax
+#nkjnxaaszx axas
 
 A simple Express.js web server that serves the Swayatt logo image.
 
